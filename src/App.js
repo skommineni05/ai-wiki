@@ -1,18 +1,26 @@
-//import logo from './logo.svg';
-import './App.css';
-import SearchBar from "./searchbar";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import HomePage from "./pages/Home/HomePage";
+import TransactionsPage from "./pages/Transactions/TransactionsPage";
+import MemoryGcPage from "./pages/MemoryGc/MemoryGcPage";
+import SearchPage from "./pages/Search/SearchPage";
 
-export default function App() {
-  const handleSearch = (q) => {
-    console.log("Searching for:", q);
-    // call your API here
-  };
-
+function App() {
   return (
-    <div className="center-wrapper" >
-      <SearchBar onSearch={handleSearch} />
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/transactions" element={<TransactionsPage />} />
+          <Route path="/memory-gc" element={<MemoryGcPage />} />
+          <Route path="/search" element={<SearchPage />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
+
+export default App;
 
 
