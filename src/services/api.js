@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:8080/api";
+const BASE_URL = "http://localhost:9090/api";
+
 
 async function fetchJson(url) {
   const res = await fetch(url);
@@ -55,4 +56,21 @@ export async function getAllMemoryGc() {
   }
 
   return all;
+}
+
+export async function commandSearch(command) {
+  const res = await fetch(`${BASE_URL}/command-search`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ command }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Command search failed with status ${res.status}`);
+  }
+
+  // { resultText: "..." }
+  return res.json();
 }

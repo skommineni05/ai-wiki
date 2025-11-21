@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dot-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: #4b5563;
+  display: inline-block;
+  position: relative;
+  animation: dotPulse 1s infinite ease-in-out;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+}

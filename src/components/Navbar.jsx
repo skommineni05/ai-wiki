@@ -35,6 +35,9 @@ const Navbar = () => {
       <NavLink to="/search" style={linkStyle}>
         Search
       </NavLink>
+      <NavLink to="/aisearch" style={linkStyle}>
+        AiSearch
+      </NavLink>
     </nav>
   );
 };
